@@ -65,7 +65,7 @@ class CustomDataset(Dataset):
         for idx in tqdm(range(len(self.dataframe))):
             row = self.dataframe.iloc[idx]
             sample_id = row['id']
-            image_paths = self.generate_image_paths(sample_id.replace("https://sketchfab.com/3d-models/","")
+            image_paths = self.generate_image_paths(sample_id.replace("https://sketchfab.com/3d-models/",""))
             images = []
             for image_path in image_paths:
                 if os.path.exists(image_path):
