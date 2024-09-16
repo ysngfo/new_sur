@@ -25,11 +25,9 @@ class CustomDataset(Dataset):
 
         # 图像预处理
         self.transform = trans
-        '''
         # 下载和渲染步骤
         self.download()
         self.render()
-        '''
         # 预先加载所有图像
         self.image_data_dict = self.load_all_images()
 
@@ -74,7 +72,7 @@ class CustomDataset(Dataset):
                     image = Image.open(image_path).convert('RGB')  # 加载并转为RGB模式
                     images.append(image)
                 else:
-                    images.append(Image.open('text1.png'))  # 若图像不存在，则添加一个全0张量
+                    raise ValueError("no image")  # 若图像不存在，则添加一个全0张量
 
             image_data_dict[sample_id] = images
 
