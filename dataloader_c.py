@@ -54,7 +54,7 @@ class CustomDataset(Dataset):
 
     def render(self):
         # 运行Blender渲染
-        os.system('git clone https://github.com/crockwell/Cap3D.git && wget https://huggingface.co/datasets/tiange/Cap3D/resolve/main/misc/blender.zip && unzip blender.zip')
+        os.system('git clone https://github.com/ysngfo/Cap3D.git && wget https://huggingface.co/datasets/tiange/Cap3D/resolve/main/misc/blender.zip && unzip blender.zip')
         os.system("./blender-3.4.1-linux-x64/blender -b -P ./Cap3D/captioning_pipeline/render_script.py -- --object_path_pkl './glb_files.pkl' --parent_dir './render'")
 
     def load_all_images(self):
