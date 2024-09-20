@@ -699,7 +699,7 @@ def main():
         returned["rank"]=torch.tensor(examples["rank"])
         return returned
 
-    dataset = CustomDataset(pd.read_csv("./10000.csv"), trans=preprocess_train)
+    dataset = CustomDataset(pd.read_csv("./10000.csv").sample(1000), trans=preprocess_train)
 
     def collate_fn(examples):
         pixel_values = torch.stack([example["pixel_values"] for example in examples])
